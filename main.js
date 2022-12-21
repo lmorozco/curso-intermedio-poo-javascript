@@ -1,43 +1,19 @@
-const juan = {
-    name: "Juan",
-    age: 18,
-    approvedCourses: ["Curso1"],
-    
-    addCourse(newCourse){
-        this.approvedCourses.push(newCourse);
+const obj1 = {
+    a: "a",
+    b: "b",
+    c: {
+        d: "d",
+        e: "e",
     }
 };
 
-console.log(Object.keys(juan));
-console.log(Object.getOwnPropertyNames(juan));
-console.log(Object.entries(juan));
+//const obj2 = {};
+// for (prop in obj1){
+//     obj2[prop] = obj1[prop];
+// }
 
-//Object.seal(juan);
-Object.freeze(juan);
+// const obj3 = Object.assign({}, obj1);
+// const obj4 = Object.create(obj1);
 
-Object.defineProperty(juan, "navigator", {
-    value: "Chrome",
-    enumerable: false,
-    writable: true,
-    configurable: true,
-});
-Object.defineProperty(juan, "editor", {
-    value: "VSCode",
-    enumerable: true,
-    writable: false,
-    configurable: true,
-});
-Object.defineProperty(juan, "terminal", {
-    value: "WSL",
-    enumerable: true,
-    writable: true,
-    configurable: false,
-});
-Object.defineProperty(juan, "pruebaNasa", {
-    value: "extraterrestres",
-    enumerable: false,
-    writable: false,
-    configurable: false,
-});
-
-console.log(Object.getOwnPropertyDescriptors(juan));
+const stringifiedComplexObj = JSON.stringify(obj1);
+const obj2 = JSON.parse(stringifiedComplexObj);
